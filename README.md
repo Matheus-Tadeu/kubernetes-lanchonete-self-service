@@ -1,13 +1,13 @@
 # Lanchonete Self-Service - Exemplo de Uso com Kubernetes
 
-Este repositório contém um exemplo de aplicação "Lanchonete Self-Service" rodando em um cluster Kubernetes. Este projeto implementa uma estrutura básica para uma aplicação com backend em um ambiente Kubernetes, utilizando um banco de dados MySQL e uma aplicação com balanceamento automático.
+Este repositÃ³rio contÃ©m um exemplo de aplicaÃ§Ã£o "Lanchonete Self-Service" rodando em um cluster Kubernetes. Este projeto implementa uma estrutura bÃ¡sica para uma aplicaÃ§Ã£o com backend em um ambiente Kubernetes, utilizando um banco de dados MySQL e uma aplicaÃ§Ã£o com balanceamento automÃ¡tico.
 
-## Pré-requisitos
+## PrÃ©-requisitos
 
-Para testar e executar este projeto, você precisará:
+Para testar e executar este projeto, vocÃª precisarÃ¡:
 - [Minikube](https://minikube.sigs.k8s.io/docs/start/) instalado para criar um cluster Kubernetes local.
 
-## Configuração e Execução
+## ConfiguraÃ§Ã£o e ExecuÃ§Ã£o
 
 ### 1. Inicializar o Minikube
 
@@ -17,14 +17,14 @@ Primeiro, inicie o Minikube com o comando:
 minikube start
 ```
 
-### 2. Aplicar Configurações de Banco de Dados MySQL
-Acesse o diretório mysql/ e aplique os arquivos de configuração:
+### 2. Aplicar ConfiguraÃ§Ãµes de Banco de Dados MySQL
+Acesse o diretÃ³rio mysql/ e aplique os arquivos de configuraÃ§Ã£o:
 
 ```bash
 kubectl apply -f mysql/
 ```
 
-Isso criará:
+Isso criarÃ¡:
 
 - Um Deployment para o MySQL.
 - Um PersistentVolumeClaim para armazenamento persistente.
@@ -32,49 +32,49 @@ Isso criará:
 - Um Service para expor o banco de dados dentro do cluster.
 
 
-### 3. Aplicar Configurações da Aplicação Lanchonete
-Acesse o diretório app/ e aplique os arquivos de configuração:
+### 3. Aplicar ConfiguraÃ§Ãµes da AplicaÃ§Ã£o Lanchonete
+Acesse o diretÃ³rio app/ e aplique os arquivos de configuraÃ§Ã£o:
 
 ```bash
 kubectl apply -f app/
 ```
 
-Isso criará:
+Isso criarÃ¡:
 
-- Um Deployment para a aplicação "Lanchonete Self-Service".
+- Um Deployment para a aplicaÃ§Ã£o "Lanchonete Self-Service".
 - Um HorizontalPodAutoscaler para escalar automaticamente os pods com base na carga.
-- Um Service para expor a aplicação dentro do cluster.
+- Um Service para expor a aplicaÃ§Ã£o dentro do cluster.
 - Um Secret para as credenciais de acesso ao banco de dados.
 
-### 4. Aguardar Inicialização dos Pods
+### 4. Aguardar InicializaÃ§Ã£o dos Pods
 Verifique o status dos pods para garantir que todos estejam Running:
 
 ```bash
 kubectl get pods
 ```
-Repita o comando até que todos os pods estejam em READY 1/1 e STATUS Running.
+Repita o comando atÃ© que todos os pods estejam em READY 1/1 e STATUS Running.
 
-### 5. Aplicar Configurações dos Componentes
+### 5. Aplicar ConfiguraÃ§Ãµes dos Componentes
 
 ```bash
 kubectl apply -f components/
 ```
 
-### 6. Acessar a Aplicação
-Após os serviços estarem prontos, você pode acessar a aplicação através do Minikube. Use o comando abaixo para abrir a URL da aplicação:
+### 6. Acessar a AplicaÃ§Ã£o
+ApÃ³s os serviÃ§os estarem prontos, vocÃª pode acessar a aplicaÃ§Ã£o atravÃ©s do Minikube. Use o comando abaixo para abrir a URL da aplicaÃ§Ã£o:
 
 ```bash
 minikube service lanchonete-self-service
 ```
-A aplicação será aberta no navegador na URL fornecida pelo comando. Acesse a interface Swagger para testar a API na seguinte URL:
+A aplicaÃ§Ã£o serÃ¡ aberta no navegador na URL fornecida pelo comando. Acesse a interface Swagger para testar a API na seguinte URL:
 
 ```bash
 http://<minikube-ip>:<porta>/tech-challenge-01/swagger-ui/index.html
 ```
-Nota: <minikube-ip> e <porta> serão substituídos pelo endereço IP e porta específicos do seu ambiente.
+Nota: <minikube-ip> e <porta> serÃ£o substituÃ­dos pelo endereÃ§o IP e porta especÃ­ficos do seu ambiente.
 
 ### 7. Acessar o Kubernetes Dashboard (Opcional)
-Para monitorar e gerenciar os recursos no cluster Kubernetes, você pode acessar o Kubernetes Dashboard:
+Para monitorar e gerenciar os recursos no cluster Kubernetes, vocÃª pode acessar o Kubernetes Dashboard:
 
 ```bash
 minikube dashboard
@@ -82,7 +82,7 @@ minikube dashboard
 
 ### Notas Adicionais
 - Certifique-se de ter o Minikube e kubectl configurados corretamente antes de iniciar.
-- Este projeto é um exemplo básico e pode ser expandido conforme necessário.
+- Este projeto Ã© um exemplo bÃ¡sico e pode ser expandido conforme necessÃ¡rio.
 
-### Conclusão
-Agora, você pode acessar a aplicação "Lanchonete Self-Service" em um ambiente Kubernetes local e experimentar o uso de Kubernetes para orquestrar a aplicação e seus componentes.
+### ConclusÃ£o
+Agora, vocÃª pode acessar a aplicaÃ§Ã£o "Lanchonete Self-Service" em um ambiente Kubernetes local e experimentar o uso de Kubernetes para orquestrar a aplicaÃ§Ã£o e seus componentes.
